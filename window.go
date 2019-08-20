@@ -2403,6 +2403,12 @@ func (wb *WindowBase) WndProc(hwnd win.HWND, msg uint32, wParam, lParam uintptr)
 	case win.WM_KEYUP:
 		wb.handleKeyUp(wParam, lParam)
 
+	case win.WM_SYSKEYDOWN:
+		wb.handleKeyDown(wParam, lParam)
+
+	case win.WM_SYSKEYUP:
+		wb.handleKeyUp(wParam, lParam)
+
 	case win.WM_DROPFILES:
 		wb.dropFilesPublisher.Publish(win.HDROP(wParam))
 
